@@ -42,7 +42,7 @@ public class PdfFileSizeReducer {
                 continue;
 
             PdfImageObject image = new PdfImageObject(stream);
-            BufferedImage bi = image.getBufferedImage();git s
+            BufferedImage bi = image.getBufferedImage();
 
             if (bi == null)
                 continue;
