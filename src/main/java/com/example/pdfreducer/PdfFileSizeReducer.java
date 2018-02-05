@@ -17,9 +17,20 @@ import java.io.*;
 
 public class PdfFileSizeReducer {
     private PdfReader pdfReader;
+    private int resizeExceptWidthUnder = 0;
+    private int resizeExceptHeightUnder = 0;
 
     public PdfFileSizeReducer(InputStream inputStream) throws IOException {
             pdfReader = new PdfReader(inputStream);
+    }
+
+    public int getNumberOfPages() {
+        return pdfReader.getNumberOfPages();
+    }
+
+    public void setResizeExceptSizeUnder(int width, int height) {
+        resizeExceptWidthUnder = width;
+        resizeExceptHeightUnder = height;
     }
 
     public void reduce(OutputStream outputStream, float scaleFactor,
@@ -46,6 +57,11 @@ public class PdfFileSizeReducer {
 
             if (bi == null)
                 continue;
+
+            if (!(resizeExceptWidthUnder < bi.getWidth()
+                    && resizeExceptHeightUnder < bi.getHeight())) {
+                scaleFactor = 1.0f;
+            }
 
             int width = (int)(bi.getWidth() * scaleFactor);
             int height = (int)(bi.getHeight() * scaleFactor);

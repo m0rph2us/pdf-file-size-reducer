@@ -27,7 +27,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 
 	// needed for pdf manipulation
-	compile('com.itextpdf:itextpdf:5.0.6')
+	compile('com.itextpdf:itextpdf:5.5.13')
 
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

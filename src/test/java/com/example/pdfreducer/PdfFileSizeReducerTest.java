@@ -12,6 +12,12 @@ public class PdfFileSizeReducerTest {
         String outputFilePath = "/tmp/sample1-comp.pdf";
 
         PdfFileSizeReducer pdfReducer = new PdfFileSizeReducer(new FileInputStream(inputFilePath));
-        pdfReducer.reduce(new FileOutputStream(outputFilePath), 0.5f, 0.5f);
+
+        if (pdfReducer.getNumberOfPages() > 100) {
+            System.out.println("Your input pdf file has page more than 100!");
+        } else {
+            pdfReducer.setResizeExceptSizeUnder(1024, 768);
+            pdfReducer.reduce(new FileOutputStream(outputFilePath), 0.5f, 0.5f);
+        }
     }
 }
