@@ -28,6 +28,8 @@ dependencies {
 
 	// needed for pdf manipulation
 	compile('com.itextpdf:itextpdf:5.5.13')
+	compile('com.twelvemonkeys.imageio:imageio-jpeg:3.3.2')
+	compile('org.apache.sanselan:sanselan:0.97-incubator')
 
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
